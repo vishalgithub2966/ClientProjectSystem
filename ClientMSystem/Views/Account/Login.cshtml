@@ -1,0 +1,924 @@
+﻿@model ClientMSystem.Models.SignUp
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+
+}
+
+
+<html lang="en" class="wf-poppins-n3-active wf-roboto-n5-active wf-roboto-n6-active wf-roboto-n7-active wf-poppins-n4-active wf-poppins-n5-active wf-poppins-n6-active wf-poppins-n7-active wf-roboto-n3-active wf-roboto-n4-active wf-active js-focus-visible">
+<!-- begin::Head -->
+<head>
+
+    <!--begin::Base Path (base relative path for assets of this page) -->
+    <!--end::Base Path -->
+    <meta charset="utf-8">
+    <title>CTDOT TAM | Login Page</title>
+    <meta name="description" content="Login page example">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        .kt-login__logo {
+            height: 90px !important;
+        }
+
+        .kt-login.kt-login--v1 .kt-login__aside {
+            width: 605px;
+            padding: 3rem 3.5rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+            .kt-login.kt-login--v1 .kt-login__aside .kt-login__logo {
+                display: flex;
+            }
+
+            .kt-login.kt-login--v1 .kt-login__aside .kt-login__title {
+                color: black;
+                font-size: 2rem;
+                font-weight: 500;
+            }
+
+            .kt-login.kt-login--v1 .kt-login__aside .kt-login__info {
+                display: flex;
+                justify-content: space-between;
+            }
+
+                .kt-login.kt-login--v1 .kt-login__aside .kt-login__info .kt-login__copyright {
+                    color: rgba(255, 255, 255, 0.4);
+                }
+
+        .kt-login.kt-login--v1 .kt-login__wrapper {
+            padding: 3rem 3rem;
+            background: #fff;
+        }
+
+            .kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+
+                .kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form {
+                    width: 100%;
+                    max-width: 450px;
+                }
+
+                    .kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__title {
+                        display: block;
+                        text-align: center;
+                        margin-bottom: 5rem;
+                        text-decoration: none;
+                    }
+
+                        .kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__title > h3 {
+                            font-size: 2rem;
+                            color: #67666e;
+                        }
+
+                    .kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-form {
+                        margin: 4rem auto;
+                    }
+
+                        .kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-form .form-group {
+                            margin: 0;
+                            padding: 0;
+                            margin: 0 auto;
+                        }
+
+                            .kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-form .form-group .form-control {
+                                border: none;
+                                height: 50px;
+                                margin-top: 1.25rem;
+                                background-color: rgba(247, 247, 249, 0.7);
+                                padding-left: 1.25rem;
+                                padding-right: 1.25rem;
+                                transition: background-color 0.3s ease;
+                            }
+
+                                .kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-form .form-group .form-control:focus {
+                                    transition: background-color 0.3s ease;
+                                    background-color: #f7f7f9;
+                                }
+
+                    .kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__actions {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin: 3rem 0;
+                    }
+
+                        .kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-login__actions .kt-login__btn-primary {
+                            height: 50px;
+                            padding-left: 2.5rem;
+                            padding-right: 2.5rem;
+                        }
+
+        .btn.color {
+            background-color: #F22D4E;
+            color: white;
+        }
+
+        @@media (min-width: 1025px) {
+            .kt-login.kt-login--v1 .kt-login__aside {
+                flex: 1;
+            }
+        }
+
+        @@media (max-width: 1024px) {
+            .kt-login.kt-login--v1 .kt-login__aside {
+                width: 100%;
+                height: auto;
+                padding: 2rem 1.5rem;
+            }
+
+                .kt-login.kt-login--v1 .kt-login__aside .kt-login__logo {
+                    margin-bottom: 2.5rem;
+                }
+
+                .kt-login.kt-login--v1 .kt-login__aside .kt-login__info {
+                    margin-top: 2rem;
+                }
+
+            .kt-login.kt-login--v1 .kt-login__wrapper {
+                padding: 3rem 1.5rem;
+            }
+
+                .kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 5rem;
+                }
+        }
+
+        :root {
+            --blue: #007bff;
+            --indigo: #6610f2;
+            --purple: #6f42c1;
+            --pink: #e83e8c;
+            --red: #dc3545;
+            --orange: #fd7e14;
+            --yellow: #ffc107;
+            --green: #28a745;
+            --teal: #20c997;
+            --cyan: #17a2b8;
+            --white: #fff;
+            --gray: #6c757d;
+            --gray-dark: #343a40;
+            --primary: #5867dd;
+            --secondary: #e1e1ef;
+            --success: #0abb87;
+            --info: #5578eb;
+            --warning: #ffb822;
+            --danger: #fd397a;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --breakpoint-xs: 0;
+            --breakpoint-sm: 576px;
+            --breakpoint-md: 768px;
+            --breakpoint-lg: 1024px;
+            --breakpoint-xl: 1399px;
+            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        body {
+            margin: 0;
+            font-family: "Poppins";
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: left;
+            background-color: #fff;
+        }
+
+        h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: #5867dd;
+            text-decoration: none;
+            background-color: transparent;
+        }
+
+            a:hover {
+                color: #2739c1;
+                text-decoration: underline;
+            }
+
+        img {
+            vertical-align: middle;
+            border-style: none;
+        }
+
+        button {
+            border-radius: 0;
+        }
+
+            button:focus {
+                outline: 1px dotted;
+                outline: 5px auto -webkit-focus-ring-color;
+            }
+
+        input, button {
+            margin: 0;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+        }
+
+        button, input {
+            overflow: visible;
+        }
+
+        button {
+            text-transform: none;
+        }
+
+        button, [type="submit"] {
+            -webkit-appearance: button;
+        }
+
+            button::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
+                padding: 0;
+                border-style: none;
+            }
+
+        h3 {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            height: calc(1.5em + 1.3rem + 2px);
+            padding: 0.65rem 1rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #e2e5ec;
+            border-radius: 4px;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        @@media (prefers-reduced-motion: reduce) {
+            .form-control {
+                transition: none;
+            }
+        }
+
+        .form-control::-ms-expand {
+            background-color: transparent;
+            border: 0;
+        }
+
+        .form-control:focus {
+            color: #495057;
+            background-color: #fff;
+            border-color: #9aabff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(88, 103, 221, 0.25);
+        }
+
+        .form-control::-webkit-input-placeholder {
+            color: #74788d;
+            opacity: 1;
+        }
+
+        .form-control:-ms-input-placeholder {
+            color: #74788d;
+            opacity: 1;
+        }
+
+        .form-control::-ms-input-placeholder {
+            color: #74788d;
+            opacity: 1;
+        }
+
+        .form-control::placeholder {
+            color: #74788d;
+            opacity: 1;
+        }
+
+        .form-control:disabled {
+            background-color: #f7f8fa;
+            opacity: 1;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            font-weight: normal;
+            color: #212529;
+            text-align: center;
+            vertical-align: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-color: transparent;
+            border: 1px solid transparent;
+            padding: 0.65rem 1rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.25rem;
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        @@media (prefers-reduced-motion: reduce) {
+            .btn {
+                transition: none;
+            }
+        }
+
+        .btn:hover {
+            color: #212529;
+            text-decoration: none;
+        }
+
+        .btn:focus {
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(88, 103, 221, 0.25);
+        }
+
+        .btn:disabled {
+            opacity: 0.65;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #5867dd;
+            border-color: #5867dd;
+        }
+
+            .btn-primary:hover {
+                color: #fff;
+                background-color: #384ad7;
+                border-color: #2e40d4;
+            }
+
+            .btn-primary:focus {
+                box-shadow: 0 0 0 0.2rem rgba(113, 126, 226, 0.5);
+            }
+
+            .btn-primary:disabled {
+                color: #fff;
+                background-color: #5867dd;
+                border-color: #5867dd;
+            }
+
+        @@media print {
+            *, *::before, *::after {
+                text-shadow: none !important;
+                box-shadow: none !important;
+            }
+
+            a:not(.btn) {
+                text-decoration: underline;
+            }
+
+            img {
+                page-break-inside: avoid;
+            }
+
+            h3 {
+                orphans: 3;
+                widows: 3;
+            }
+
+            h3 {
+                page-break-after: avoid;
+            }
+
+            body {
+                min-width: 1024px !important;
+            }
+        }
+
+        .btn {
+            background: transparent;
+            outline: none !important;
+            vertical-align: middle;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #5867dd;
+            border-color: #5867dd;
+            color: #ffffff;
+        }
+
+            .btn-primary:hover {
+                color: #fff;
+                background-color: #384ad7;
+                border-color: #2e40d4;
+            }
+
+            .btn-primary:focus {
+                box-shadow: 0 0 0 0.2rem rgba(113, 126, 226, 0.5);
+            }
+
+            .btn-primary:disabled {
+                color: #fff;
+                background-color: #5867dd;
+                border-color: #5867dd;
+            }
+
+        .btn.btn-elevate {
+            transition: all 0.3s ease 0s;
+        }
+
+        .btn.btn-primary.btn-elevate {
+            box-shadow: 0px 4px 16px 0px rgba(88, 103, 221, 0.15);
+        }
+
+            .btn.btn-primary.btn-elevate:focus, .btn.btn-primary.btn-elevate:active, .btn.btn-primary.btn-elevate:hover {
+                box-shadow: 0px 9px 16px 0px rgba(88, 103, 221, 0.25) !important;
+            }
+
+        .btn {
+            align-items: center;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-control:focus, .form-control:active {
+            box-shadow: none !important;
+        }
+
+        html {
+            font-family: sans-serif;
+            -moz-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            font-size: 13px;
+            font-weight: 300;
+            font-family: Poppins;
+            -ms-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+            html a:hover, html a:active, html a:focus, body a:hover, body a:active, body a:focus {
+                text-decoration: none !important;
+            }
+
+            html a, html button, body a, body button {
+                outline: none !important;
+            }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            color: #646c9a;
+        }
+
+        ::-webkit-scrollbar-button {
+            display: none;
+        }
+
+        @@media (min-width: 769px) and (max-width: 1024px) {
+            html, body {
+                font-size: 12px;
+            }
+        }
+
+        @@media (max-width: 768px) {
+            html, body {
+                font-size: 12px;
+            }
+        }
+
+        .kt-grid.kt-grid--hor:not(.kt-grid--desktop):not(.kt-grid--desktop-and-tablet):not(.kt-grid--tablet):not(.kt-grid--tablet-and-mobile):not(.kt-grid--mobile) {
+            display: flex;
+            flex-direction: column;
+        }
+
+            .kt-grid.kt-grid--hor:not(.kt-grid--desktop):not(.kt-grid--desktop-and-tablet):not(.kt-grid--tablet):not(.kt-grid--tablet-and-mobile):not(.kt-grid--mobile).kt-grid--root {
+                flex: 1;
+                -ms-flex: 1 0 0px;
+            }
+
+            .kt-grid.kt-grid--hor:not(.kt-grid--desktop):not(.kt-grid--desktop-and-tablet):not(.kt-grid--tablet):not(.kt-grid--tablet-and-mobile):not(.kt-grid--mobile) > .kt-grid__item {
+                flex: none;
+            }
+
+                .kt-grid.kt-grid--hor:not(.kt-grid--desktop):not(.kt-grid--desktop-and-tablet):not(.kt-grid--tablet):not(.kt-grid--tablet-and-mobile):not(.kt-grid--mobile) > .kt-grid__item.kt-grid__item--fluid {
+                    flex: 1 0 auto;
+                }
+
+        .kt-grid.kt-grid--ver:not(.kt-grid--desktop):not(.kt-grid--desktop-and-tablet):not(.kt-grid--tablet):not(.kt-grid--tablet-and-mobile):not(.kt-grid--mobile) {
+            display: flex;
+            flex-direction: row;
+        }
+
+            .kt-grid.kt-grid--ver:not(.kt-grid--desktop):not(.kt-grid--desktop-and-tablet):not(.kt-grid--tablet):not(.kt-grid--tablet-and-mobile):not(.kt-grid--mobile).kt-grid--root {
+                flex: 1;
+                -ms-flex: 1 0 0px;
+            }
+
+            .kt-grid.kt-grid--ver:not(.kt-grid--desktop):not(.kt-grid--desktop-and-tablet):not(.kt-grid--tablet):not(.kt-grid--tablet-and-mobile):not(.kt-grid--mobile) > .kt-grid__item {
+                flex: 0 0 auto;
+            }
+
+        .kt-grid > .kt-grid__item {
+            max-width: 100%;
+        }
+
+            .kt-grid > .kt-grid__item.kt-grid__item--middle {
+                align-self: center;
+            }
+
+        @@media (min-width: 1025px) {
+            .kt-grid.kt-grid--ver-desktop.kt-grid--desktop {
+                display: flex;
+                flex-direction: row;
+            }
+
+                .kt-grid.kt-grid--ver-desktop.kt-grid--desktop > .kt-grid__item {
+                    flex: 0 0 auto;
+                }
+
+                    .kt-grid.kt-grid--ver-desktop.kt-grid--desktop > .kt-grid__item.kt-grid__item--fluid {
+                        flex: 1 auto;
+                        -ms-flex: 1 0 0px;
+                        min-width: 0;
+                    }
+        }
+
+        @@media screen\0 and (min-width: 1025px) {
+            .kt-grid.kt-grid--ver-desktop.kt-grid--desktop > .kt-grid__item.kt-grid__item--fluid {
+                min-width: none;
+            }
+        }
+
+        @@media (min-width: 1025px) {
+            .kt-grid > .kt-grid__item {
+                max-width: 100%;
+            }
+
+                .kt-grid > .kt-grid__item.kt-grid__item--middle {
+                    align-self: center;
+                }
+        }
+
+        @@media (min-width: 1400px) {
+            .kt-grid > .kt-grid__item {
+                max-width: 100%;
+            }
+
+                .kt-grid > .kt-grid__item.kt-grid__item--middle {
+                    align-self: center;
+                }
+        }
+
+        @@media (min-width: 769px) {
+            .kt-grid > .kt-grid__item {
+                max-width: 100%;
+            }
+
+                .kt-grid > .kt-grid__item.kt-grid__item--middle {
+                    align-self: center;
+                }
+        }
+
+        @@media (min-width: 769px) and (max-width: 1024px) {
+            .kt-grid > .kt-grid__item {
+                max-width: 100%;
+            }
+
+                .kt-grid > .kt-grid__item.kt-grid__item--middle {
+                    align-self: center;
+                }
+        }
+
+        @@media (max-width: 1024px) {
+            .kt-grid > .kt-grid__item {
+                max-width: 100%;
+            }
+
+                .kt-grid > .kt-grid__item.kt-grid__item--middle {
+                    align-self: center;
+                }
+        }
+
+        @@media (max-width: 768px) {
+            .kt-grid > .kt-grid__item {
+                max-width: 100%;
+            }
+
+                .kt-grid > .kt-grid__item.kt-grid__item--middle {
+                    align-self: center;
+                }
+        }
+
+        body {
+            background: #f2f3f8;
+        }
+        /*! CSS Used fontfaces */
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Poppins Light'), local('Poppins-Light'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLDz8Z11lFc-K.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Poppins Light'), local('Poppins-Light'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLDz8Z1JlFc-K.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Poppins Light'), local('Poppins-Light'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Poppins Regular'), local('Poppins-Regular'), url(https://fonts.gstatic.com/s/poppins/v9/pxiEyp8kv8JHgFVrJJbecmNE.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Poppins Regular'), local('Poppins-Regular'), url(https://fonts.gstatic.com/s/poppins/v9/pxiEyp8kv8JHgFVrJJnecmNE.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Poppins Regular'), local('Poppins-Regular'), url(https://fonts.gstatic.com/s/poppins/v9/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            src: local('Poppins Medium'), local('Poppins-Medium'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLGT9Z11lFc-K.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            src: local('Poppins Medium'), local('Poppins-Medium'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            src: local('Poppins Medium'), local('Poppins-Medium'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Poppins SemiBold'), local('Poppins-SemiBold'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLEj6Z11lFc-K.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Poppins SemiBold'), local('Poppins-SemiBold'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Poppins SemiBold'), local('Poppins-SemiBold'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Poppins Bold'), local('Poppins-Bold'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLCz7Z11lFc-K.woff2) format('woff2');
+            unicode-range: U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Poppins Bold'), local('Poppins-Bold'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLCz7Z1JlFc-K.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        @@font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Poppins Bold'), local('Poppins-Bold'), url(https://fonts.gstatic.com/s/poppins/v9/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+    </style>
+</head>
+
+
+
+
+<body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed" data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+
+    <div class="kt-grid kt-grid--ver kt-grid--root">
+        <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v1" id="kt_login">
+            <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile">
+
+                <!--begin::Aside-->
+                <div class="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside" style="background-color:cornflowerblue">
+                    <div class="kt-grid__item">
+                        <a href="@Url.Action("Index", "Home", new { area = string.Empty })" class="kt-login__logo">
+                            <img src="">
+                        </a>
+
+                    </div>
+                    <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
+                        <div class="kt-grid__item kt-grid__item--middle">
+                            <h3 class="kt-login__title">Conn DOT</h3>
+
+                        </div>
+                    </div>
+                    <div class="kt-grid__item">
+                        <div class="kt-login__info">
+                            <div class="kt-login__copyright">
+                                 &copy; @DateTime.Now.Year CTDOT ()
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1  kt-login__wrapper">
+
+                    <!--begin::Body-->
+                    <div class="kt-login__body" id="﻿LoginArea">
+
+                        <!--begin::Signin-->
+                        <div class="kt-login__form">
+                            <div class="kt-login__title">
+                                <h3>LogIn</h3>
+                            </div>
+                           @* <div class="text-center">
+                                <a class="btn btn-outline-primary" asp-action="SignUp" asp-controller="Account">Sign Up</a>
+                            </div>
+                            <div class="text-lg-end">
+                                <a class="btn btn-outline-primary" asp-action="AdminLogin" asp-controller="Admin">Admin</a>
+                            </div>*@
+                            <!--begin::Form-->
+
+                            <form class="kt-form" method="post" asp-action="Login" id="LoginForm">
+                                <div class="login-form-icon form-outline mb-4">
+                                    <i class="fas fa-user-circle fa-9x text-secondary"></i>
+                                </div>
+
+                                 <div class="form-group">
+                                    <input type="text" asp-for="Username" class="form-control" placeholder="UserNameOrEmail" autocomplete="off">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" asp-for="Password" class="form-control" placeholder="Password">
+                                </div>
+
+                                <div class="kt-login__actions">
+                                    <button type="submit" value="LogIn" class="btn btn-primary btn-elevate kt-login__btn-primary">LogIn</button>
+                                   @* <button type="submit" asp-action="SignUp" asp-controller="Account" class="btn btn-primary btn-elevate kt-login__btn-primary">Sign Up</button>*@
+                                    <a asp-action="ForgetPassword">"ForgotPassword?</a>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                        <!--end::Signin-->
+                    </div>
+
+                    <!--end::Body-->
+                </div>
+
+                <!--end::Content-->
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+
+
+
+@*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/ClientMSystem.styles.css" asp-append-version="true" />
+
+
+    <div class="container">
+        <div class="row mt-lg-5">
+        <div class="col-6 offset-3 border border-primary rounded p-lg-3 pb-5 mt-2">
+                    <div class="card-header">
+                    <h1 class="text-center text-primary"style=" font-family: Georgia, serif;font:italic,bold;">User Login</h1>
+                    </div>
+
+                    @Html.Raw(ViewBag.msg)
+
+                    <div class="card-body">
+                        <div class="text-center">
+                            <a class="text-light btn btn-primary font-weight-bold" asp-action="SignUp" asp-controller="Account">Sign Up</a>
+                        </div>
+
+
+                        <div class="text-lg-end">
+                           <a class="btn btn-outline-primary" asp-action="AdminLogin" asp-controller="Admin">Admin</a>
+                        </div>
+
+                        <form method="post" asp-action="Login">
+                            <div class="login-form-icon form-outline mb-4">
+                                <i class="fas fa-user-circle fa-9x text-secondary"></i>
+                            </div>
+                            <div class="form-group">
+                                <label>User Name</label>
+                                <input type="text " asp-for="Username" class="form-control" placeholder="Enter User Name" required autocomplete="off" />
+                                <span class="text-danger">@TempData["Errormessage"]</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Password">Password</label>
+                                <input type="password" asp-for="Password" class="form-control" placeholder="Enter Password" required autocomplete="off" />
+                                <span class="text-danger">@TempData["Errormessage"]</span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="LogIn" class="btn btn-lg btn-outline-success m-4 float-lg-end" />
+                            </div>
+
+                        </form>
+                        <div class="text-md-end">
+
+                            <a class="text-primary" asp-action="ForgotPassword">Forgot Password</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+*@
+
+

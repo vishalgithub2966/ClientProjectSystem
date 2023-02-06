@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Client Management System </h1>  
+    <h1>EMP ID</h1>
+
+</div>
+
+<style>
+    .form-control {
+        padding: 0 !important;
+    }
+
+    a#btnSearch {
+        color: white;
+    }
+
+    .slice {
+        cursor: pointer;
+    }
+
+        .slice .main-arc {
+            stroke: #fff;
+            stroke-width: 1px;
+        }
+
+        .slice .hidden-arc {
+            fill: none;
+        }
+
+        .slice text {
+            pointer-events: none;
+            dominant-baseline: middle;
+            text-anchor: middle;
+        }
+
+    svg {
+        margin-bottom: 5%;
+    }
+
+        svg:not(:root) {
+            overflow: inherit;
+        }
+</style>
+
+<div class="m-subheader heading_sec">
+    <div class="row align-items-center">
+        <div class="mr-auto col-sm-12 col-md-12 mr_btm">
+            <h3 class="">
+                <span class="textStyl">
+                    Welcome to the CTDOT Transit Asset Management Database!
+                    <br />
+                    <br />
+                    This database stores asset inventory data of Connecticut transit providers. Please use the menu bar on the left or dashboard controls to view, edit, create or delete assets. Note that any edits made by a transit operator must be approved before they can be incorporated in the inventory.
+                </span>
+            </h3>
+        </div>
+    </div>
+</div>
+
+<div id="dynamicAddTextBoX"></div>
+
+
+
+<style>
+
+    select#TenantDropDownChange[style] {
+        bottom: 0 !important;
+        left: 1% !important;
+        opacity: 1 !important;
+        width: 280px !important;
+        display: block !important;
+        margin-right: 73px;
+        margin-top: 0px;
+        padding: 14px !important;
+        position: relative !important;
+        border: 1px solid #ccc;
+    }
+
+    .mainDiv {
+        padding: 39px 40px;
+    }
+
+    .count {
+        display: block;
+        font-weight: bold;
+        //font-size: 18px;
+    }
+
+    .m-content {
+        width: 50%;
+        float: left;
+    }
+
+    .textStyl {
+        font-size: 16px;
+        color: #898b96;
+        font-weight: 300;
+    }
+
+    .portlet_mid_part {
+        margin-top: 2%;
+    }
+
+    .m-content.full_content.padd_reduce {
+        padding: 0px 15px 0px 15px !important;
+    }
+
+    .mr_btm {
+        margin-bottom: 30px;
+    }
+
+    .m-portlet .m-portlet__body {
+        padding: .8rem .8rem !important;
+    }
+
+    .portlet_padd_red {
+        padding: 0px 15px;
+    }
+
+
+    @@media (max-width: 600px) {
+        .m-content {
+            width: 100%;
+        }
+    }
+</style>

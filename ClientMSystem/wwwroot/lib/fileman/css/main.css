@@ -1,0 +1,1544 @@
+
+body {
+    font-family: Poppins;
+    font-size: 11px;
+    padding: 0;
+    margin: 0;
+    background: #FFF;
+    height: 100%;
+    width: 100%;
+}
+
+.fa-folder-open, .fa-caret-down, .fa-folder, .fa-file-photo-o {
+    color: #8F8F8F !important;
+}
+
+.dirPanel {
+    width: 30%;
+    background: white;
+    height: inherit;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 20px 0px 0px 20px;
+}
+
+.filePanel {
+    padding: 10px 15px 0px 26px;
+    border-radius: 5px;
+    width: auto;
+    margin-top: 20px;
+    background: #f7f7f7;
+    height: inherit;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(186,179,186,1);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(186,179,186,1);
+    box-shadow: 0px 2px 5px 0px rgba(186,179,186,1);
+    margin-top: unset;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#wraper {
+    width: 100%;
+    height: 100%;
+}
+
+#wraper, #dlgNewDir, #dlgFileProp, #dlgAddFile, #menuDir, #menuFileMulti,
+#menuFile, #pnlRenameFile, #pnlLoadingDirs,
+#pnlDirName, #pnlLoading, #pnlEmptyDir,
+#pnlSearchNoFiles, #pnlFileProp, #pnlDirList ul {
+    display: none;
+}
+
+    .contextMenu a:hover,
+    #pnlFileList .selected, #pnlFileList .selected:hover,
+    #menuFile a:hover {
+        background-color: #a1dbff !important;
+        /*color: #FFF;*/
+    }
+
+#pnlDirList .selected, #pnlDirList div.selected:hover {
+    background-color: #a1dbff !important;
+    border: solid 1px darkgray;
+}
+
+.dialog input {
+    width: 97%;
+}
+
+.filesize {
+    font-weight: bold;
+    margin-top: 4px;
+    display: inline-block;
+}
+
+.pnlDragFile, .pnlDragDir {
+    background: #FFF;
+    opacity: 0.8;
+    float: left;
+    width: auto !important;
+}
+
+#pnlStatus {
+    padding: 5px;
+    height: 400px;
+    overflow: auto;
+}
+
+.scrollPane {
+    height: 400px;
+    overflow: auto;
+    padding-left: 5px;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+.actionTab {
+    background: #716aca;
+    padding: 10px 10px 5px 5px;
+    margin-bottom: 5px;
+    -webkit-box-shadow: 0px 3px 3px 0px rgb(95, 94, 113);
+    -moz-box-shadow: 0px 3px 3px 0px rgb(95, 94, 113);
+    box-shadow: 0px 3px 3px 0px rgb(95, 94, 113);
+}
+
+.scrollPaneDir {
+    height: 400px;
+    overflow-x: auto;
+    padding-left: 5px;
+    padding-top: 5px;
+    font-size: 14px;
+}
+
+.ResponsiveDirList {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    background-color: black;
+    opacity: .8;
+    color: white;
+    /* font-size: 20px; */
+    overflow: scroll;
+    z-index: 1;
+    display: block !important;
+}
+
+.sideBarOpen {
+    float: right;
+    cursor: pointer;
+    color: black;
+    margin-right: 10px;
+    display: none;
+}
+
+    .sideBarOpen span {
+        font-size: 20px;
+    }
+
+        .sideBarOpen span:hover {
+            color: goldenrod;
+            font-size: 25px;
+        }
+
+.sideBarClose {
+    float: left;
+    cursor: pointer;
+    color: black;
+    margin-right: 10px;
+    display: none;
+}
+
+    .sideBarClose span {
+        font-size: 20px;
+    }
+
+        .sideBarClose span:hover {
+            color: goldenrod;
+            font-size: 25px;
+        }
+
+
+
+
+.bottomLine {
+    background: #DDD;
+    border-top: 1px solid #CCC;
+}
+
+.pale {
+    opacity: 0.5;
+}
+/* Search and order fields */
+#txtSearch, #ddlOrder {
+    border: 1px solid #CCC;
+    border-radius: 3px;
+}
+
+#txtSearch {
+    padding: 0 22px 0 3px;
+    /*background:url(../images/sprite.png) no-repeat 87px -314px;*/
+    /*width:80px;*/
+    /*height:20px;*/
+    float: right;
+}
+
+input[type=text]::-ms-clear {
+    display: none;
+}
+/* END OF Search and order fields */
+
+/* Directory tree */
+.pnlDirs {
+    /*width: auto;
+    min-width: 30%;
+    overflow-x: hidden;
+    overflow-y: auto;*/
+    /*border-right: 1px solid #b5adad;*/
+    /*float: left;*/
+}
+
+
+#fileActions {
+    /*width: auto;*/
+    /*overflow: auto;*/
+}
+
+#pnlDirList {
+    margin-left: 4px;
+}
+
+    #pnlDirList ul {
+        padding: 0 0 0 20px;
+    }
+
+    #pnlDirList .dir {
+        line-height: 25px;
+        /*float:left;*/
+        color: #ebd25e;
+        margin-right: 5px;
+        font-size: 15px;
+    }
+
+    #pnlDirList .dirPlus {
+        float: left;
+        margin: 5px 5px 0 0;
+    }
+
+    #pnlDirList li, #pnlDirList div {
+        float: left;
+        clear: both;
+        /*width: 98%;*/
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    #pnlDirList div { /*padding:3px;*/
+        cursor: pointer;
+    }
+
+#pnlLoadingDirs {
+    margin-left: 5px;
+}
+/* END OF Directory tree */
+
+/* File list */
+.pnlFiles {
+    /*padding-left: 4px;*/
+    /*padding-top: 9px;*/
+}
+
+#pnlFileList .icon {
+    float: left;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.thumbView img {
+    object-fit : cover;
+}
+
+#pnlFileList .fa-file-photo-o {
+    color: #03b8f5;
+}
+
+#pnlFileList .fa-folder {
+    color: #ebd25e;
+}
+
+#pnlFileList .fa-file-photo-o {
+    color: #03b8f5;
+}
+
+#pnlFileList .fa-file-photo-o {
+    color: #03b8f5;
+}
+
+#pnlFileList .fa-file-photo-o {
+    color: #03b8f5;
+}
+
+#pnlFileList li {
+    float: left;
+    padding: 3px;
+    clear: both;
+    width: 98%;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+    #pnlFileList li:hover, #pnlDirList li div:hover {
+        background: #cbebff !important;
+    }
+
+#pnlFileList .size {
+    /* float: right; */
+    margin-left: 20px;
+}
+
+#pnlFileList .time {
+    float: right;
+    margin-right: 15px;
+    /* width: 130px */
+}
+
+#pnlFileList .name {
+    float: left;
+    overflow: hidden;
+    width: 50%;
+    height: 20px;
+}
+
+
+.HeaderAction .time {
+    /* float: right; */
+    /* margin-right: 15px; */
+    /* width: 130px; */
+    position: absolute;
+    right: 21%;
+}
+
+.HeaderAction .size {
+    /* float: right; */
+    /* margin-right: 50px; */
+    /* position: absolute; */
+    /* right: 30%; */
+    width: 20%;
+    margin-left: 74%;
+}
+
+.HeaderAction .filenameCls {
+    /* float: left; */
+    /* position: absolute; */
+    /* left: 25%; */
+    margin-left: 4%;
+    width: 40%;
+}
+
+    .HeaderAction .filenameCls:hover {
+        /*float: left;*/
+        cursor: pointer;
+    }
+
+.HeaderAction .time:hover {
+    /*float: left;*/
+    cursor: pointer;
+}
+
+.HeaderAction .size:hover {
+    /*float: left;*/
+    cursor: pointer;
+}
+
+
+.imgPreview {
+    max-width: 300px;
+}
+/* END OF File list */
+
+/* Context menus */
+.contextMenu {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #BBB;
+    min-width: 150px;
+    /* font-weight: bold; */
+    /* z-index: 1000 !important; */
+}
+
+    .contextMenu a {
+        /*background-repeat: no-repeat;*/
+        background-position: 4px 6px;
+        padding: 5px 25px 5px 20px;
+        display: block;
+        color: #000;
+        text-decoration: none;
+    }
+
+
+
+.contextMenuAll {
+    position: absolute;
+    background-color: #ec1717;
+    border: 1px solid #ec1717;
+    min-width: 130px;
+    font-size: 15px;
+    border-radius: 20px;
+    /* color: white; */
+    /* font-weight: bold; */
+    /* z-index: 1000 !important; */
+}
+
+    .contextMenuAll a {
+        /*background-repeat: no-repeat;*/
+        background-position: 4px 6px;
+        padding: 5px 25px 5px 20px;
+        display: block;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .contextMenuAll:hover {
+        background-color: #f39494 !important;
+        /*color: #FFF;*/
+    }
+
+hr {
+    margin: 0;
+    color: #AAA;
+}
+/* END OF Context menus */
+
+/* Buttons */
+.actions {
+    padding: 5px;
+    background-color: #d8d7d4;
+    border-bottom: solid #2ba4ef 5px;
+    height: 35px;
+    display: none;
+}
+
+    .actions input {
+        background-repeat: no-repeat;
+        background-position: 3px center;
+        padding: 0 3px 0 18px;
+        height: 22px;
+        font-size: 11px;
+        border: 1px solid #CCC;
+        background-color: #EEE;
+        border-radius: 3px;
+        margin-bottom: 3px;
+    }
+
+        .actions input[type=button]:hover, .actions input.selected {
+            background-color: #DFD;
+            cursor: pointer;
+        }
+
+    /*#btnAddDir {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -213px;
+}
+
+
+
+#btnDeleteDir {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -237px;
+}
+
+
+
+#btnAddFile {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -81px;
+}
+
+#btnDeleteFile {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -104px;
+}
+
+
+
+#btnDeleteFile {
+    margin-right: 15px;
+}
+
+#btnDownloadFile {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -128px;
+}*/
+    /*
+    #mnuCreateDir {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -210px;
+}
+
+#mnuDownloadDir {
+    background-image: url(../images/sprite.png);
+    background-position: 4px 7px;
+}
+    #mnuDeleteDir {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -235px;
+}
+        #mnuDeleteFile {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -102px;
+}
+
+#mnuDownload {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -126px;
+}
+
+#btnPreviewFile {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -285px;
+}
+
+#mnuPreview {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -283px;
+}
+
+#btnSelectFile {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -399px;
+}
+
+#mnuSelectFile {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -397px;
+}*/
+    /*#btnThumbView{background-image:url(../images/sprite.png);background-position: center -447px;}*/
+
+    /*#btnListView{background-image:url(../images/sprite.png);background-position: center -483px;}*/
+    /*#btnRenameFile, #btnRenameDir {
+    background-image: url(../images/sprite.png);
+    background-position: 4px 4px;
+}*/
+
+    .actions input {
+        background-repeat: no-repeat;
+        background-position: 3px center;
+        padding: 0 3px 0 18px;
+        height: 22px;
+        font-size: 11px;
+        border: 1px solid #CCC;
+        background-color: #EEE;
+        border-radius: 3px;
+        margin-bottom: 3px;
+    }
+
+.blurScreen {
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);
+    -o-filter: blur(5px);
+    filter: blur(5px);
+}
+
+.dropLabel {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    color: gray;
+    font-size: 30px;
+}
+
+.dropZone {
+    border: dashed 8px;
+    border-radius: 15px;
+    border-color: gray;
+}
+
+.dragDiv {
+    opacity: 0.6;
+    background-color: gray;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.dragSpan {
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 50%;
+    background-color: gray;
+    color: white;
+}
+
+.actions input[type=button]:hover, .actions input.selected {
+    background-color: #DFD;
+    cursor: pointer;
+}
+/*#mnuCreateDir{background-image:url(../images/sprite.png);background-position: 4px -210px;}
+#mnuDownloadDir{background-image:url(../images/sprite.png);background-position: 4px 7px;}*/
+/*#btnAddDir{background-image:url(../images/sprite.png);background-position: 4px -213px;}
+#btnDeleteDir{background-image:url(../images/sprite.png);background-position: 4px -237px;}
+#mnuDeleteDir{background-image:url(../images/sprite.png);background-position: 4px -235px;}
+#btnAddFile{background-image:url(../images/sprite.png);background-position: 4px -81px;}
+#btnDeleteFile{background-image:url(../images/sprite.png);background-position: 4px -104px;}
+#mnuDeleteFile{background-image:url(../images/sprite.png);background-position: 4px -102px;}
+#btnDeleteFile{margin-right:15px;}
+#btnDownloadFile{background-image:url(../images/sprite.png);background-position: 4px -128px;}
+#mnuDownload{background-image:url(../images/sprite.png);background-position: 4px -126px;}
+#btnPreviewFile{background-image:url(../images/sprite.png);background-position: 4px -285px;}
+#mnuPreview{background-image:url(../images/sprite.png);background-position: 4px -283px;}
+#btnSelectFile{background-image:url(../images/sprite.png);background-position: 4px -399px;}
+#mnuSelectFile{background-image:url(../images/sprite.png);background-position: 4px -397px;}
+#btnThumbView{background-image:url(../images/sprite.png);background-position: center -447px;}
+#btnListView{background-image:url(../images/sprite.png);background-position: center -483px;}
+#btnRenameFile,#btnRenameDir{background-image:url(../images/sprite.png);background-position: 4px 4px;}
+#mnuRenameDir,#mnuRenameFile{background-image:url(../images/sprite.png);background-position: 4px 7px;}
+#mnuDirCut,#mnuFileCut{background-image:url(../images/sprite.png);background-position: 4px -47px;}
+#mnuDirCopy,#mnuFileCopy{background-image:url(../images/sprite.png);background-position: 4px -20px;}
+#mnuDirPaste,#mnuFilePaste{background-image:url(../images/sprite.png);background-position: 4px -370px;}*/
+
+/*#mnuCreateDir {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -210px;
+}
+
+#mnuDownloadDir {
+    background-image: url(../images/sprite.png);
+    background-position: 4px 7px;
+}
+
+#btnDeleteDir {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -237px;
+}
+
+#mnuDeleteDir {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -235px;
+}
+
+#btnAddFile {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -81px;
+}
+
+#btnDeleteFile {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -104px;
+}
+
+#mnuDeleteFile {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -102px;
+}
+
+#btnDeleteFile {
+    margin-right: 15px;
+}
+
+#btnDownloadFile {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -128px;
+}
+
+#mnuDownload {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -126px;
+}
+
+#btnPreviewFile {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -285px;
+}
+
+#mnuPreview {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -283px;
+}
+
+#btnSelectFile {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -399px;
+}
+
+#mnuSelectFile {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -397px;
+}*/
+/*#btnThumbView{background-image:url(../images/sprite.png);background-position: center -447px;}*/
+
+/*#btnListView{background-image:url(../images/sprite.png);background-position: center -483px;}*/
+/*#btnRenameFile, #btnRenameDir {
+    background-image: url(../images/sprite.png);
+    background-position: 4px 4px;
+}
+
+#mnuRenameDir, #mnuRenameFile {
+    background-image: url(../images/sprite.png);
+    background-position: 4px 7px;
+}
+
+#mnuDirCut, #mnuFileCut {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -47px;
+}
+
+#mnuDirCopy, #mnuFileCopy {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -20px;
+}
+
+#mnuDirPaste, #mnuFilePaste {
+    background-image: url(../images/sprite.png);
+    background-position: 4px -370px;
+}*/
+
+/* END OF Buttons */
+/* File list views */
+ul#pnlFileList.thumbView li {
+    /*
+  width:140px;
+  height: 140px;
+  */
+    float: left !important;
+    clear: none;
+    margin: 0 10px 10px 0;
+    overflow: hidden;
+    /*padding: 10px;*/
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #EEE;
+    border-radius: 5px;
+    position: relative;
+    background: #EEE;
+}
+
+ul#pnlFileList.thumbView .size, ul#pnlFileList.thumbView .time {
+    display: none;
+}
+
+ul#pnlFileList.thumbView .size, ul#pnlFileList.thumbView .time {
+    display: none;
+}
+
+ul#pnlFileList.thumbView .icon {
+    clear: both;
+    float: none;
+    /*margin:0 !important;*/
+    margin-top: 10px !important;
+    text-align: center;
+    vertical-align: middle;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /*
+  width:140px;
+  height:120px;
+  */
+}
+
+ul#pnlFileList.thumbView .name {
+    display: block !important;
+    width: 95% !important;
+    position: absolute;
+    bottom: 5px;
+    margin: 0;
+    color: white;
+    background-color: black;
+    opacity: 0.3;
+    border-radius: 5px;
+    /* margin: 1px; */
+    padding: 2px;
+}
+/* END OF File list views */
+#fileUploads {
+    width: 100%;
+}
+
+.uploadFilesList {
+    width: 100%;
+    height: auto;
+    overflow: auto;
+}
+
+#uploadResult {
+}
+
+div.ui-tooltip {
+    max-width: 90%;
+}
+/* Upload dialog */
+.uploadFilesList {
+    font-size: 15px;
+}
+
+.fileUpload {
+    margin: 10px 5px 10px 5px;
+    position: relative;
+    border: 2px solid #929292;
+}
+
+    .fileUpload .error {
+        font-weight: bold;
+    }
+
+.fileName {
+    z-index: 2;
+    /* line-height: 20px; */
+    height: 30px;
+    overflow: hidden;
+    width: 90%;
+    padding: 5px 0px 0 5px;
+}
+
+.progressPercent {
+    z-index: 2;
+}
+
+.stripes {
+    background: url('../images/stripes.gif') repeat-x;
+    -moz-opacity: 0.40;
+    -khtml-opacity: 0.40;
+    opacity: 0.40;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=40);
+    filter: alpha(opacity=40);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: relative;
+}
+
+.uploadProgress {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: #d3edff;
+    background: -moz-linear-gradient(top, #d3edff 0%, #cbebff 47%, #a1dbff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d3edff), color-stop(47%,#cbebff), color-stop(100%,#a1dbff));
+    background: -webkit-linear-gradient(top, #d3edff 0%,#cbebff 47%,#a1dbff 100%);
+    background: -o-linear-gradient(top, #d3edff 0%,#cbebff 47%,#a1dbff 100%);
+    background: -ms-linear-gradient(top, #d3edff 0%,#cbebff 47%,#a1dbff 100%);
+    background: linear-gradient(to bottom, #d3edff 0%,#cbebff 47%,#a1dbff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3edff', endColorstr='#a1dbff',GradientType=0 );
+}
+
+.uploadError {
+    background: #ff8787;
+    background: -moz-linear-gradient(top, #ff8787 0%, #ffa3a3 45%, #ff5e5e 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff8787), color-stop(45%,#ffa3a3), color-stop(100%,#ff5e5e));
+    background: -webkit-linear-gradient(top, #ff8787 0%,#ffa3a3 45%,#ff5e5e 100%);
+    background: -o-linear-gradient(top, #ff8787 0%,#ffa3a3 45%,#ff5e5e 100%);
+    background: -ms-linear-gradient(top, #ff8787 0%,#ffa3a3 45%,#ff5e5e 100%);
+    background: linear-gradient(to bottom, #ff8787 0%,#ffa3a3 45%,#ff5e5e 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8787', endColorstr='#ff5e5e',GradientType=0 );
+}
+
+.uploadComplete {
+    background: #dbff87;
+    background: -moz-linear-gradient(top, #dbff87 0%, #e0f49c 45%, #bddd49 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dbff87), color-stop(45%,#e0f49c), color-stop(100%,#bddd49));
+    background: -webkit-linear-gradient(top, #dbff87 0%,#e0f49c 45%,#bddd49 100%);
+    background: -o-linear-gradient(top, #dbff87 0%,#e0f49c 45%,#bddd49 100%);
+    background: -ms-linear-gradient(top, #dbff87 0%,#e0f49c 45%,#bddd49 100%);
+    background: linear-gradient(to bottom, #dbff87 0%,#e0f49c 45%,#bddd49 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbff87', endColorstr='#bddd49',GradientType=0 );
+}
+
+    .uploadError .stripes, .uploadComplete .stripes {
+        display: none;
+    }
+
+.removeUpload {
+    /*background: url(../images/sprite.png) no-repeat 6px -421px;*/
+    position: absolute;
+    right: 0;
+    top: 0;
+    /*height: 100%;*/
+    width: 20px;
+    cursor: pointer;
+}
+
+.dropzone {
+    background: white;
+    border-radius: 5px;
+    border: 2px dashed rgb(0, 135, 247);
+    border-image: none;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dropPreview {
+    width: 100px;
+    height: 100px;
+    /* border: solid; */
+    text-align: center;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    /* padding: 7px; */
+    margin: 10px;
+}
+
+.dropImage {
+    width: 100%;
+    height: 30%;
+}
+
+    .dropImage img {
+        border-radius: 10px;
+    }
+
+.dropText {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    HEIGHT: 15px;
+    background-color: #b5adad;
+    opacity: 0.4;
+}
+
+    .dropText span {
+        border-radius: 5px;
+        color: white;
+        padding: 5px;
+    }
+
+    .dropText :hover {
+        /*text-overflow: ellipsis;*/
+        overflow: hidden;
+    }
+
+
+
+.progress {
+    width: 90%;
+    margin-left: 5%;
+    /*background: #bebfbf;*/
+    border-radius: 20px;
+}
+
+    .progress .progress-bar {
+        border-radius: 20px;
+        box-shadow: none;
+        animation: animate-positive 1s;
+    }
+
+    .progress .progress-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: #6b7880;
+        position: absolute;
+        top: 3px;
+        right: 10px;
+    }
+
+@keyframes animate-positive {
+    0% {
+        width: 0;
+    }
+}
+
+.dropZoneDiv {
+    margin-left: 10px;
+    margin-right: 10px;
+    /* width: 330px; */
+    height: 330px;
+    /* position: absolute; */
+    /* top: 30%; */
+    /* left: 30%; */
+    /* margin: 10px; */
+    /* margin-top: 2%; */
+    /* width: 99%; */
+    /* height: 100%; */
+    border: dashed 4px;
+    background-color: white;
+    padding-top: 10px;
+    overflow: overlay;
+    border-color: #a7a6a3;
+}
+
+.dropZoneMain {
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    width: 70%;
+    height: 50%;
+    /* border: dashed 5px; */
+    background-color: white;
+    /* padding-top: 10px; */
+    /* overflow: overlay; */
+}
+
+.closeDropZone {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    cursor: pointer;
+}
+
+    .closeDropZone span {
+        font-size: 20px;
+        color: orangered;
+    }
+
+.CompleteIcon {
+    font-size: 20px;
+    color: green;
+}
+
+    .CompleteIcon span {
+        font-size: 15px;
+        height: 25px;
+        width: 25px;
+        color: white;
+        background-color: #66b366;
+        border-radius: 50%;
+        padding: 4px;
+    }
+
+        .CompleteIcon span:hover {
+            position: relative;
+        }
+
+        .CompleteIcon span[aria-label]:hover:after {
+            content: attr(aria-label);
+            padding: 4px 8px;
+            position: absolute;
+            border-radius: 5px;
+            left: 0;
+            top: 100%;
+            white-space: nowrap;
+            z-index: 20px;
+            background: #9c2727;
+            font-size: 15px;
+        }
+
+#dropzoneFile body {
+    background: rgb(243, 244, 245);
+    height: 100px;
+    color: rgb(100, 108, 127);
+    line-height: 1.4rem;
+    font-family: Roboto, "Open Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
+
+.disabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.disiblePointer {
+    pointer-events: none;
+}
+
+#dropzoneFile h3 {
+    text-align: center;
+}
+
+.HeightFixed {
+    height: 90%;
+}
+
+#dropzoneFile .dropzone {
+    background: white;
+    border-radius: 5px;
+    border: 2px dashed rgb(0, 135, 247);
+    border-image: none;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.loader {
+    position: absolute;
+    left: 60%;
+    top: 50%;
+    z-index: 1;
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #3498db;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+
+/*.modal {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    padding: 2%;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
+}*/
+
+/* Modal Content (image) */
+/*.modal-content {
+    margin: auto;
+    display: block;
+    width: auto;
+    max-width: 80%;
+    height: auto;
+    max-height: 95%;
+}*/
+
+/* Caption of Modal Image */
+#caption {
+    position: absolute;
+    margin: auto;
+    display: block;
+    width: 100%;
+    bottom: 10%;
+    background: black;
+    /* max-width: 700px; */
+    text-align: center;
+    color: #fbfbfb;
+    padding: 10px 0;
+    opacity: 0.25;
+    /* height: 150px; */
+    font-size: large;
+}
+
+/* Add Animation */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    right: 1%;
+    top: 0%;
+    /* top: 15px; */
+    /* right: 35px; */
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    z-index: 1000;
+    opacity: 0.5;
+}
+
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+
+/*Dropable Dir Disigne */
+.dropableFolder {
+    background: green !important;
+    /*background-color: green;*/
+    /*width: 125px !important;*/
+}
+
+    .dropableFolder span {
+        color: white;
+        font-size: 15px;
+    }
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}
+
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* END OF Upload dialog */
+@media (max-width:768px) {
+    #pnlFileList .size {
+        margin-left: 0px;
+    }
+}
+
+@media (max-width:698px) {
+    .actions {
+        width: 100%;
+        height: 70px;
+    }
+
+    #showDirList {
+        display: none;
+    }
+
+    #hideDirList {
+        display: none;
+    }
+
+
+    #txtSearch {
+        float: none;
+    }
+}
+
+@media (max-width:643px) {
+    #pnlFileList .name {
+        font-size: 12px;
+    }
+
+    #showDirList {
+        display: none;
+    }
+
+    #hideDirList {
+        display: none;
+    }
+
+    #pnlFileList .time {
+        font-size: 12px;
+    }
+
+    #pnlFileList .size {
+        font-size: 12px;
+    }
+
+    #pnlFileList .name {
+        width: 37%;
+    }
+
+    .HeaderAction .size {
+        margin-left: 0%;
+    }
+
+    .HeaderAction .filenameCls {
+        font-size: 12px;
+    }
+
+    .HeaderAction .size {
+        font-size: 12px;
+    }
+
+    .HeaderAction .time {
+        font-size: 12px;
+        margin: 32px;
+    }
+}
+
+@media (max-width:500px) {
+    td#dirActions {
+        display: none;
+    }
+
+    #showDirList {
+        display: block;
+    }
+
+    #hideDirList {
+        display: block;
+    }
+
+    .actions {
+        width: 100%;
+        padding-top: 18px;
+    }
+
+    span.icon.fa.fa-file-photo-o {
+        font-size: 12px !important;
+    }
+
+    .HeaderAction .filenameCls {
+        margin-left: 10%;
+        width: 28%;
+        font-size: 10px;
+    }
+
+    .HeaderAction .time {
+        position: relative;
+        right: 0%;
+        font-size: 10px;
+    }
+
+    .HeaderAction .size {
+        font-size: 10px;
+    }
+
+    #txtSearch {
+        float: right;
+    }
+}
+
+
+
+.unsplashCls {
+    width: 150px;
+    padding: 2px;
+    height: 78px;
+    /* border: 5px solid #282a3c; */
+    margin: 5px 0 0 0;
+}
+
+.showFiled {
+    /*display:block;*/
+}
+
+.hideFiled {
+    /*display:none;*/
+}
+
+.showImageDeatils {
+    position: absolute;
+    /* width: 500px; */
+    max-width: 320px;
+    /* background: white; */
+    right: -2%;
+    top: -5%;
+    height: 100%;
+    border-radius: 5px;
+    /* -webkit-box-shadow: 1px 1px 14px -2px rgba(0,0,0,0.75); */
+    -moz-box-shadow: 1px 1px 14px -2px rgba(0,0,0,0.75);
+    /* box-shadow: 1px 1px 14px -2px rgba(0,0,0,0.75); */
+}
+
+.previewImageCls-Height {
+    width: 50%;
+    height: 100%;
+    margin-top: 7%;
+    margin-left: 20%;
+    border-radius: 5%;
+    -webkit-box-shadow: -2px 9px 12px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 9px 12px -6px rgba(0,0,0,0.75);
+    box-shadow: -2px 9px 12px -6px rgba(0,0,0,0.75);
+}
+
+.previewImageCls-Width {
+    width: 100%;
+    height: 100%;
+    max-height: 280px;
+    max-width: 280px;
+    margin-top: 7%;
+    border-radius: 5%;
+    -webkit-box-shadow: -2px 9px 12px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 9px 12px -6px rgba(0,0,0,0.75);
+    box-shadow: -2px 9px 12px -6px rgba(0,0,0,0.75);
+}
+
+.artistDiv {
+    margin: 0% 0% 0 5%;
+    font-size: 14px;
+    height: 25px;
+}
+
+    .artistDiv p {
+        padding-left: 5px;
+    }
+
+img.unsplashClsSingle {
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+    padding: 0px;
+    border-radius: 5%;
+    /* border: 5px solid #282a3c; */
+    transition: 0.75s ease-in-out;
+    margin: 10px 10px 10px 5px;
+    webkit-box-shadow: -2px 9px 12px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 9px 12px -6px rgba(0,0,0,0.75);
+    box-shadow: -2px 5px 5px -6px rgba(0,0,0,0.75);
+}
+
+#UnsplashImages::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0px rgba(0,0,0,0);
+    background-color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#UnsplashImages::-webkit-scrollbar {
+    width: 5px;
+    background-color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#UnsplashImages::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;
+    border: 0px solid #c1c1c1;
+}
+
+
+.col-md-2, .col-md-12 {
+    padding-right: unset;
+    padding-left: unset;
+}
+
+div#UnsplashImages {
+    width: 100%;
+    padding-left: 0%;
+    margin-left: 2%;
+    height: 330px;
+    /*overflow-y: hidden;*/
+    overflow-x: hidden;
+    border-radius: 5px;
+    /* -webkit-box-shadow: 1px 1px 14px -2px rgba(0,0,0,0.75); */
+    -moz-box-shadow: 1px 1px 14px -2px rgba(0,0,0,0.75);
+    /* box-shadow: -1px 1px 5px -2px rgba(0,0,0,0.75); */
+}
+
+.searchPanel {
+    height: 25px;
+    position: absolute;
+    top: -15%;
+    right: -50%;
+    width: 50%;
+}
+
+.searchInput {
+    padding: 3px 3px 4px 5px;
+    border-radius: 3px;
+    border: 1px solid #ebedf2;
+    margin-left: 2px;
+}
+
+.modal-dialog {
+    max-width: 75%;
+    margin: 5% auto;
+}
+
+#myModal.modal {
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    bottom: 10%;
+    left: 10%;
+    z-index: 1051;
+    display: none;
+    overflow: hidden;
+    outline: 0;
+}
+
+#myModal.modal2 {
+    position: fixed;
+    top: 0%;
+    right: 30%;
+    bottom: 30%;
+    left: 0%;
+    z-index: 1051;
+    display: none;
+    overflow: hidden;
+    outline: 0;
+}
+
+.dividerDiv {
+    background-color: #ebedf2;
+    width: 1px;
+}
+
+#rawDownload {
+    width: 56%;
+    padding-left: 23px;
+}
+
+.deleteFileBtn {
+    float: right;
+    color: #8f8f8f !important;
+}
+    .deleteFileBtn:hover {
+        color: #ffffff !important;
+    }
+
+.deleteFileBtnThum {
+    position: absolute;
+    top: 0%;
+    right: 5%;
+}
+    .deleteFileBtnThum i {
+        font-size: 1rem !important;
+    }
+
+.dirContextBtn {
+    font-size: 10px;
+    color: #8f8f8f !important;
+    margin-left: 5px;
+    float: right;
+}
+    .dirContextBtn:hover {
+        color: #ffffff !important;
+    }
+
+p#descriptionId {
+    display: inline-block;
+}
+
+    p#descriptionId .tooltiptext {
+        visibility: hidden;
+        width: 300px;
+        background-color: #14151e;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        left: 0px;
+        top: 50px;
+        opacity: .90;
+    }
+
+    p#descriptionId:hover .tooltiptext {
+        visibility: visible;
+    }

@@ -1,0 +1,5 @@
+2023-01-19 13:36:36.1235 Info Message Template Auto Format enabled
+2023-01-19 13:36:36.1519 Info Loading assembly: NLog.Extensions.Logging
+2023-01-19 13:36:36.2050 Info Loading assembly: NLog.Web.AspNetCore
+2023-01-19 13:36:36.3412 Info Registered target NLog.Targets.FileTarget(Name=allfile)
+2023-01-19 13:36:36.3412 Info Registered target NLog.Targets.FileTarget(Name=ownFile-web)
