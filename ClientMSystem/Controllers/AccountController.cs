@@ -14,7 +14,7 @@ using System.Security.Principal;
 
 namespace ClientMSystem.Controllers
 {
-   
+
     public class AccountController : Controller
     {
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
@@ -25,8 +25,6 @@ namespace ClientMSystem.Controllers
         {
             this.context = context;
         }
-
-      
         public IActionResult Login()
         {
             return View();
@@ -92,12 +90,10 @@ namespace ClientMSystem.Controllers
             }
             return RedirectToAction("Login", "Account");
         }
-
-        //*****************************************************************************SignUp****************************************
-        [AcceptVerbs("Post","Get")]
+        [AcceptVerbs("Post", "Get")]
         public IActionResult UserNameIsExits(string Uname)
         {
-           try
+            try
             {
                 var data = context.signUps.Where(e => e.Username == Uname).SingleOrDefault();
                 if (data != null)
@@ -150,80 +146,11 @@ namespace ClientMSystem.Controllers
                     TempData["errorMessage"] = "Fill The All Fileds";
                     return View(model);
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
-            
         }
     }
-}
-
-//Admin Controller
-
-    public class AdminController : Controller
-    {
-        private readonly ApplicationContext context;
-
-        public AdminController(ApplicationContext context)
-        {
-            this.context = context;
-        }
-
-        public IActionResult AdminLogin()
-        {
-            return View();
-        }
-
-    
-    [HttpPost]
-    public IActionResult AdminLogin(AdminModel model)
-    {
-        if (ModelState.IsValid)
-        {
-            var adData = context.adminModel.FirstOrDefault(a => a.Username == model.Username && a.Password == model.Password);
-            if (adData != null)
-            {
-                var identity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, model.Username) },
-                     CookieAuthenticationDefaults.AuthenticationScheme);
-
-                var principal = new ClaimsPrincipal(identity);
-                HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-                HttpContext.Session.SetInt32("UserId", adData.Id);  // store imp info in session
-
-
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                ViewBag.msg = "<div class='alert alert-danger alert-dismissible fade show' role='alert'> Invalid Email Or Password!! <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\r\n    <span aria-hidden=\"true\">&times;</span>\r\n  </button>\r\n</div>";
-                return View(model);
-            }
-        }
-        return View();
-    }
-
-    public IActionResult LogOut()
-    {
-
-        HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-        var StoredCookies = Request.Cookies.Keys; // After Logout Delete the all cookies.
-        foreach (var cookie in StoredCookies)
-        {
-            Response.Cookies.Delete(cookie);
-        }
-        return RedirectToAction("Login", "Account");
-    }
-
-    //Forget Password:
-
-    public IActionResult ForgetPassword()
-    {
-        return View();
-    }
-
- 
-
-
 }
