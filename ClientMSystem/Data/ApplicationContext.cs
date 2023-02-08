@@ -16,5 +16,7 @@ namespace ClientMSystem.Data
 
         public DbSet<EmailDto> emailDto { get; set; }
 
+        public DbSet<WeekData> weekDatas { get; set; }
+
     }
 }

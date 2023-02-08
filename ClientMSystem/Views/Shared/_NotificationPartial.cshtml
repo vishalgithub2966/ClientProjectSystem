@@ -1,0 +1,27 @@
+﻿<script>
+var msg = @(TempData["Message"] != null ? Html.Raw(TempData["Message"]) : Html.Raw("undefined"));
+console.log(msg)
+
+if (msg) {
+if (msg.provider == "sweetAlert") {
+     Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, Send the request!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )
+  }
+})
+} 
+else {
+toastr[msg.type] (msg.text, msg.title);
+</script>

@@ -3,7 +3,7 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="container">
+<div class="container" id="myForm" onsubmit="sendForm(event)">
         <div class="col-12">
             <!--Divide screen into 8 col-->
         <h1 class="text-center text-primary" style=" font-family: Georgia, serif;font:italic,bold;">
@@ -45,8 +45,10 @@
                                 <a class="btn btn-sm btn-warning" style="margin-right:5px;" role="button" asp-controller="TaskSheet" asp-action="Edit" asp-route-id="@d.Id">Edit Sheet</a>
 
                                 <a class="btn btn-sm btn-success" style="margin-right:5px;" role="button" asp-controller="TaskSheet" asp-action="Createpdf" asp-route-id="@d.Id">Create PDF</a>
-                            
-                                <a class="btn btn-sm btn-danger" role="button" asp-controller="TaskSheet" asp-action="Delete" asp-route-id="@d.Id">Delete Sheet</a>
+
+
+                            <a class="btn btn-sm btn-danger" style="margin-right:5px;" role="button" asp-controller="TaskSheet" asp-action="Delete" asp-route-id="@d.Id">Delete Sheet</a>
+                            <a class="btn btn-sm btn-primary" role="button" asp-controller="Request" asp-action="Send" asp-route-id="@d.Id">Request for Approval</a>
                         </td>
                     </tr>
                 }
@@ -54,7 +56,25 @@
         }
             <a class="btn btn-sm btn-success m-4" asp-controller="TaskSheet" asp-action="Create">Add new Update</a>
             <p class="text-center text-success">@TempData["error"]</p>
-
+        @await Html.PartialAsync("_NotificationPartial")
         </div>
     </div>
 
+@section scripts{
+    <script>
+        function sendForm(e){
+           e.preventDefault();
+
+           Swal.fire({
+               title:'Do you want to save the changes?',
+               icon:'question',
+               showCancelButton:true
+           }).then(result=>{
+               if(result.isConfirmed){
+                   const myForm=document.getElementById('myForm');
+                   myForm.submit();
+               }
+           })
+        }
+    </script>
+}
